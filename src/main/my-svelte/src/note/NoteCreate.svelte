@@ -1,6 +1,5 @@
 <script>
-  export let notes;
-  export let addNewNote;
+  import notes from '../store/notes';
 
   let data = {
     title: "",
@@ -8,17 +7,14 @@
     content: "",
     id: null
   };
-  let addNote = () => {
-    
+  let addNote = () => {    
     const newNote = {
       id: notes.length + 1,
       title: data.title,
       category: data.category,
       content: data.content
     };
-
-    notes = notes.concat(newNote);
-    addNewNote(newNote);
+    notes.addNote(newNote);
 
     data = {
       id: null,
